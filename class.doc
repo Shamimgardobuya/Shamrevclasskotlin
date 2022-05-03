@@ -1,0 +1,52 @@
+fun main() {
+   
+    var rw=Car("Toyota","432Maz","Green",15)
+    rw.carry(12)
+    rw.identity()
+//     rw.calculateParkingFees(20,3)
+    println(rw.calculateParkingFees(20,3))
+    var t =Bus("Mazi","Jinks","purple",14)
+   
+    println( t.maxTripFare(20.00))
+var w =t.calculateParkingFees(5,7)
+println(w)
+    
+    
+    
+}
+open class Car(var make:String,var model:String,var color:String,var capacity:Int){
+    fun carry(People:Int){
+        var x = capacity-People
+        if(capacity<=People){
+            println("Carrying $People passengers")
+        }
+       else{
+           println("Over capacity by $x People")
+       } 
+    }
+    fun identity(){
+        println("I am a $color,$make and $model")
+    }
+   open fun calculateParkingFees(fees:Int,hours:Int):Int{
+        var calculateFee=fees*hours
+        return calculateFee
+        
+    }
+    
+}
+class Bus(make:String,model:String,color:String,capacity:Int):Car(make,model,color,capacity){
+    fun maxTripFare(fare:Double):Double{
+        var fare = 50.9
+        return fare
+        
+    }
+    override  fun calculateParkingFees(fees:Int,hours:Int):Int{
+        super.calculateParkingFees(fees,hours)
+//         var hours=4
+ 
+        var p = hours*capacity
+        return p
+        
+        
+    }
+}
